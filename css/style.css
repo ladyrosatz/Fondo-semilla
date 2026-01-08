@@ -1,0 +1,81 @@
+/* VARIABLES (Tus colores) */
+:root {
+    --negro: #121212;
+    --rojo: #B71C1C;
+    --blanco: #ffffff;
+    --gris-claro: #f4f4f4;
+}
+
+body { margin: 0; font-family: Arial, sans-serif; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.centered-content { text-align: center; }
+
+/* 1. HEADER & NAV */
+.main-header {
+    background-color: var(--negro);
+    height: 70px;
+    position: sticky; /* Se queda pegado arriba */
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+.nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-menu ul { display: flex; list-style: none; gap: 20px; }
+.nav-menu a { color: var(--blanco); text-decoration: none; font-weight: bold; }
+.mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 24px;}
+
+/* 2. HERO SECTION (Imagen de fondo) */
+.hero-section {
+    /* Usamos una imagen de URL como fondo */
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 400px; /* Altura designada fija */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--blanco);
+}
+.btn { padding: 10px 20px; text-decoration: none; margin: 0 10px; border-radius: 5px; }
+.btn-rojo { background-color: var(--rojo); color: white; }
+.btn-blanco { background-color: white; color: var(--negro); }
+
+/* 3. MAPA (IMPORTANTE: Altura obligatoria) */
+#map {
+    height: 500px; /* Si quitas esto, el mapa desaparece */
+    width: 100%;
+    margin-bottom: 40px;
+    border: 2px solid var(--negro);
+}
+
+/* 4 y 5. SECCIONES */
+.chart-section { padding: 50px 0; }
+.bg-gris { background-color: var(--gris-claro); }
+.chart-placeholder {
+    height: 200px;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed #999;
+}
+
+/* 6. FOOTER */
+.main-footer { background-color: var(--negro); color: var(--blanco); padding: 20px 0; text-align: center; }
+.footer-links { list-style: none; padding: 0; display: flex; justify-content: center; gap: 20px; }
+.footer-links a { color: var(--blanco); text-decoration: none; }
+
+/* RESPONSIVE (CELULAR) */
+@media (max-width: 768px) {
+    .nav-menu { display: none; flex-direction: column; position: absolute; top: 70px; right: 0; background: var(--negro); width: 100%; text-align: center; padding-bottom: 20px;}
+    .nav-menu.show { display: flex; } /* Clase que añade JS */
+    .nav-menu ul { flex-direction: column; }
+    .mobile-menu-btn { display: block; cursor: pointer; }
+}
